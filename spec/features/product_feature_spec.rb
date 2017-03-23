@@ -12,7 +12,10 @@ RSpec.describe "Products", type: :feature do
     visit product_path(p1)
     expect(page).to have_content p1.name
     click_link "Next Product"
-    expect(page).not_to have_content p2.name
+    #/////// the next test was "expect(page).to_not have_content p2.name"
+    #////// That seemed wrong to me, so I changed it.
+    #///// Thanks! -Holt
+    expect(page).to have_content p2.name
   end
 
   it 'loads next product without page refresh', js: true do
